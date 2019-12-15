@@ -103,7 +103,7 @@ public class Survival extends JavaPlugin
 			Bukkit.getConsoleSender().sendMessage("[SurvivalPlus] " + ChatColor.YELLOW + "NoPos implemented, F3 coordinates are disabled!");
 		}
 	    
-		//settings = YamlConfiguration.loadConfiguration(getResource("config.yml"));
+		settings = YamlConfiguration.loadConfiguration(getResource("config.yml"));
 		String url = settings.getString("MultiWorld.ResourcePackURL");
 		boolean resourcePack = settings.getBoolean("MultiWorld.EnableResourcePack");
 		if(resourcePack)
@@ -234,7 +234,7 @@ public class Survival extends JavaPlugin
 		if(settings.getBoolean("Mechanics.FoodDiversity"))
 			FoodDiversity();
 		ResetStatusScoreboard(settings.getBoolean("Mechanics.StatusScoreboard"));
-		//BackpackCheck(); //Testing Backpack
+		BackpackCheck(); //Testing Backpack
 
 		logger.info(pdfFile.getName() + " has been enabled.");
 	}
@@ -339,7 +339,7 @@ public class Survival extends JavaPlugin
 			pm.registerEvents(new FirestrikerClick(), this);
 			pm.registerEvents(new ShivPoison(), this);
 			pm.registerEvents(new WaterBowl(), this);
-			//pm.registerEvents(new Backpack(), this);
+			pm.registerEvents(new Backpack(), this);
 		}
 		pm.registerEvents(new NoAnvil(), this);
 		if(settings.getBoolean("Mechanics.Bow"))
@@ -638,15 +638,15 @@ public class Survival extends JavaPlugin
 		(
 			Arrays.asList
 			(
-				ChatColor.RESET + "" + Words.get("§2Poisoned: Poison enemy when hit"),
+				ChatColor.RESET + "" + Words.get("Â§2Poisoned: Poison enemy when hit"),
 				"",
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in main hand:"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + shiv_spd + " " + Words.get("Attack Speed"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + shiv_dmg + " " + Words.get("Attack Damage"),
 				"",
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in off hand:"),
-				ChatColor.RESET + "" + " " + Words.get("§2Poisoning Effect §7retains"),
-				ChatColor.RESET + "" + " " + Words.get("§7> Reduce chance by 50%")
+				ChatColor.RESET + "" + " " + Words.get("Â§2Poisoning Effect Â§7retains"),
+				ChatColor.RESET + "" + " " + Words.get("Â§7> Reduce chance by 50%")
 			)
 		);
 		i_shiv.setItemMeta(shivMeta);
@@ -694,14 +694,14 @@ public class Survival extends JavaPlugin
 		(
 				Arrays.asList
 				(
-					ChatColor.RESET + "" + Words.get("§cUnable to dual-wield with Valkyrie's Axe"),
+					ChatColor.RESET + "" + Words.get("Â§cUnable to dual-wield with Valkyrie's Axe"),
 					"",
 					ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in main hand:"),
 					ChatColor.RESET + "" + ChatColor.GRAY + " " + gAxe_spd + " " + Words.get("Attack Speed"),
 					ChatColor.RESET + "" + ChatColor.GRAY + " " + gAxe_dmg + " " + Words.get("Attack Damage"),
-					ChatColor.RESET + "" + "  " + Words.get("§aSpin: Spin your axe in circle, attack all nearby enemies"),
-					ChatColor.RESET + "" + "  " + Words.get("§7> Cooldown: 1 second"),
-					ChatColor.RESET + "" + "  " + Words.get("§7> Decreases hunger value")
+					ChatColor.RESET + "" + "  " + Words.get("Â§aSpin: Spin your axe in circle, attack all nearby enemies"),
+					ChatColor.RESET + "" + "  " + Words.get("Â§7> Cooldown: 1 second"),
+					ChatColor.RESET + "" + "  " + Words.get("Â§7> Decreases hunger value")
 				)
 			);
 		gAxeMeta.addEnchant(Enchantment.DURABILITY, 10, true);
@@ -758,7 +758,7 @@ public class Survival extends JavaPlugin
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in main hand:"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gPickaxe_spd + " " + Words.get("Attack Speed"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gPickaxe_dmg + " " +  Words.get("Attack Damage"),
-				ChatColor.RESET + "" + " " + Words.get("§eHaste")
+				ChatColor.RESET + "" + " " + Words.get("Â§eHaste")
 			)
 		);
 		gPickaxeMeta.addEnchant(Enchantment.SILK_TOUCH, 1, false);
@@ -822,15 +822,15 @@ public class Survival extends JavaPlugin
 		(
 			Arrays.asList
 			(
-				ChatColor.RESET + "" + Words.get("§dCripple: Enemies hit become §8weakened"),
-				ChatColor.RESET + "" + Words.get("§aDrain: Gains §b2 hearts§a per hit"),
+				ChatColor.RESET + "" + Words.get("Â§dCripple: Enemies hit become Â§8weakened"),
+				ChatColor.RESET + "" + Words.get("Â§aDrain: Gains Â§b2 heartsÂ§a per hit"),
 				"",
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in main hand:"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gSpade_spd + " " + Words.get("Attack Speed"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gSpade_dmg + " " + Words.get("Attack Damage"),
-				ChatColor.RESET + "" + " " + Words.get("§8Exhausted: §cSlowness II"),
-				ChatColor.RESET + "" + " " + Words.get("§7> Expires after disarming for 5 seconds"),
-				ChatColor.RESET + "" + " " + Words.get("§9+50% Knockback Resistance")
+				ChatColor.RESET + "" + " " + Words.get("Â§8Exhausted: Â§cSlowness II"),
+				ChatColor.RESET + "" + " " + Words.get("Â§7> Expires after disarming for 5 seconds"),
+				ChatColor.RESET + "" + " " + Words.get("Â§9+50% Knockback Resistance")
 			)
 		);
 		gSpadeMeta.addEnchant(Enchantment.KNOCKBACK, 3, true);
@@ -895,19 +895,19 @@ public class Survival extends JavaPlugin
 		(
 			Arrays.asList
 			(
-				ChatColor.RESET + "" + Words.get("§cUnable to dual-wield with Giant Blade"),
+				ChatColor.RESET + "" + Words.get("Â§cUnable to dual-wield with Giant Blade"),
 				"",
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in main hand:"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gHoe_spd + " " + Words.get("Attack Speed"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gHoe_dmg + " " + Words.get("Attack Damage"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + Words.get("Right Click when sprinting:"),
-				ChatColor.RESET + "" + "  " + Words.get("§aCharge: Sprint forward, attack enemies infront"),
-				ChatColor.RESET + "" + "  " + Words.get("§7> Cooldown: 5 seconds"),
-				ChatColor.RESET + "" + "  " + Words.get("§7> Decreases hunger value"),
+				ChatColor.RESET + "" + "  " + Words.get("Â§aCharge: Sprint forward, attack enemies infront"),
+				ChatColor.RESET + "" + "  " + Words.get("Â§7> Cooldown: 5 seconds"),
+				ChatColor.RESET + "" + "  " + Words.get("Â§7> Decreases hunger value"),
 				"",
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in off hand:"),
-				ChatColor.RESET + "" + " " + Words.get("§aHalf-Shield: Gains §4Resistance II"),
-				ChatColor.RESET + "" + " " + Words.get("§7> Reflecting incoming damage by 40%")
+				ChatColor.RESET + "" + " " + Words.get("Â§aHalf-Shield: Gains Â§4Resistance II"),
+				ChatColor.RESET + "" + " " + Words.get("Â§7> Reflecting incoming damage by 40%")
 			)
 		);
 		gHoeMeta.addEnchant(Enchantment.DURABILITY, 10, true);
@@ -975,12 +975,12 @@ public class Survival extends JavaPlugin
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("When in main hand:"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gSword_spd + " " + Words.get("Attack Speed"),
 				ChatColor.RESET + "" + ChatColor.GRAY + " " + gSword_dmg + " " + Words.get("Attack Damage"),
-				ChatColor.RESET + "" + " " + Words.get("§6Fire Resistance"),
-				ChatColor.RESET + "" + " " + Words.get("§cFiery: -3 Hearts"),
+				ChatColor.RESET + "" + " " + Words.get("Â§6Fire Resistance"),
+				ChatColor.RESET + "" + " " + Words.get("Â§cFiery: -3 Hearts"),
 				"",
 				ChatColor.RESET + "" + ChatColor.GRAY + Words.get("Right Click when sneaking:"),
-				ChatColor.RESET + "" + " " + Words.get("§6Spread fire on the ground"),
-				ChatColor.RESET + "" + " " + Words.get("§7> Costs 1 Durability")
+				ChatColor.RESET + "" + " " + Words.get("Â§6Spread fire on the ground"),
+				ChatColor.RESET + "" + " " + Words.get("Â§7> Costs 1 Durability")
 			)
 		);
 		gSwordMeta.addEnchant(Enchantment.FIRE_ASPECT, 2, true);
@@ -2817,8 +2817,8 @@ public class Survival extends JavaPlugin
 					if(player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.ADVENTURE)
 					{
 
-						//if(overworld.getTime() >= 14000 && overworld.getTime() < 22000)
-						//{
+						if(overworld.getTime() >= 14000 && overworld.getTime() < 22000)
+						{
 							if(fatigue.getScore(player.getName()).getScore() == 1)
 								player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 20, 0), true);
 							else if(fatigue.getScore(player.getName()).getScore() == 2)
@@ -2835,7 +2835,7 @@ public class Survival extends JavaPlugin
 							{
 								player.damage(100);
 							}
-						//}
+						}
 						World overworld = player.getWorld();
 
 						if(overworld.getTime() >= 22000 && overworld.getTime() < 22100)
